@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+      args:
+        - http_proxy
+        - https_proxy
+        - no_proxy
+        - PYPI_URL
+        - PYPI_HOST
+
+    ports:
+      - "8888:8888"
